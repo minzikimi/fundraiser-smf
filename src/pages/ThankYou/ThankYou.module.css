@@ -4,27 +4,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; 
   margin: 0 auto;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem; 
   background: linear-gradient(to top, #1c1f2a, #1f2a44);
   color: var(--color-sand40);
   font-family: var(--font-sans);
 }
 
-.btnSection {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
 .goBackBtn {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   left: 2rem;
   z-index: 10;
 }
@@ -40,20 +33,30 @@
 }
 
 .thankYouWrapper {
-  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .headerThankYou {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem;
+  width: 100%;
+}
+
+.logo {
+  height: 100px;
+  filter: invert(100%);
+  margin-bottom: 3rem;
+  cursor: pointer;
 }
 
 .titleThankYou {
   color: var(--color-sand40);
   font-size: 4rem;
+  text-align: center;
 }
 
 .progressBarSection {
@@ -61,6 +64,7 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  width: 100%;
 }
 
 .getDiploma {
@@ -83,45 +87,41 @@
   font-weight: lighter;
 }
 
-.logo {
-  height: 100px;
-  filter: invert(100%);
-  margin-bottom: 3rem;
-  cursor: pointer;
-}
-
 @media (max-width: 768px) {
   .getDiploma h3 {
     padding: 1rem;
     margin: 2rem;
     line-height: 1.8rem;
-    text-align: center;
     font-size: 1.5rem;
-    font-family: var(--font-sans);
-    font-weight: lighter;
   }
 }
 
 @media (max-width: 650px) {
+  .thankYouContainer {
+    padding-top: 4rem; 
+  }
+
   .logo {
-    max-height: 4.5rem;
+    height: 4.5rem;
   }
 
   .titleThankYou {
     font-size: 2.5rem;
   }
+
   .getDiploma h3 {
     padding: 1rem;
     margin: 2rem;
     line-height: 1.8rem;
-    text-align: center;
     font-size: 1.2rem;
-    font-family: var(--font-sans);
-    font-weight: lighter;
   }
 }
 
 @media (max-width: 430px) {
+  .thankYouContainer {
+    padding-top: 3rem; 
+  }
+
   .goBackBtn {
     top: 1rem;
     left: 0.5rem;
@@ -132,12 +132,6 @@
     height: 0.5rem;
     width: 0.5rem;
   }
-
-
-  .thankYouWrapper {
-    margin-top: 6rem;
-  }
-
 
   .logo {
     height: 3rem;
@@ -151,9 +145,6 @@
     padding: 1rem;
     margin: 0.2rem;
     line-height: 1.4rem;
-    text-align: center;
     font-size: 0.8rem;
-    font-family: var(--font-sans);
-    font-weight: lighter;
   }
 }

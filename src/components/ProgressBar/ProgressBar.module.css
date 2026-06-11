@@ -1,17 +1,14 @@
 :root {
   --font-sans: Arial, sans-serif;
-  --font-serif: Georgia, serif;
-
-  --color-darkblue: #1f2a44;
-  --color-dimblue: #8e9fbc;
-  --color-seablue: #b9d3dc;
-  --color-yellow: #e6b730;
-  --color-sand: #c5b9ac;
+  --color-darkblue: #1F2A44;
+  --color-dimblue: #8E9FBC;
+  --color-seablue: #B9D3DC;
+  --color-yellow: #e6B730;
+  --color-sand: #C5B9AC;
   --color-sand40: #e7e2dd;
-  --color-sand20: #f2f0ed;
-  --color-midnight: #1c1f2a;
+  --color-sand20 : #f2f0ed;
+  --color-midnight : #1c1f2a;
 }
-
 .progressContainer {
   height: 6rem;
   width: 100%;

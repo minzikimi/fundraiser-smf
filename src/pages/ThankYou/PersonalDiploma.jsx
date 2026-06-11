@@ -7,9 +7,7 @@ import Button from '../../components/Button/Button';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-
-
-  const PersonalDiploma = () => {
+const PersonalDiploma = () => {
   const [name, setName] = useState('');
   const [language, setLanguage] = useState('English');
   const certificateRef = useRef(); 
@@ -17,11 +15,11 @@ import { Link } from "react-router-dom";
 
   const handleDownload = async () => {
     if (language === 'English' && i18n.language !== 'en') {
-    await i18n.changeLanguage('en');
-  } else if (language === 'Svenska' && i18n.language !== 'sv') {
-    await i18n.changeLanguage('sv');
-  }
-   await new Promise(resolve => setTimeout(resolve, 100));
+      await i18n.changeLanguage('en');
+    } else if (language === 'Svenska' && i18n.language !== 'sv') {
+      await i18n.changeLanguage('sv');
+    }
+    await new Promise(resolve => setTimeout(resolve, 100));
 
     const element = certificateRef.current;
     const opt = {
@@ -34,9 +32,9 @@ import { Link } from "react-router-dom";
     html2pdf().set(opt).from(element).save();
   };
 
-
   return (
     <div className={styles.container}>
+      <header className={styles.headerPersonal}>
         <Link to="/">
           <img
             src={logo}
@@ -44,44 +42,49 @@ import { Link } from "react-router-dom";
             className={styles.logo}
           />
         </Link>
+      </header>
+      
       <h2>{t('personalDiploma.title')}</h2>
+      
       <div className={styles.nameForm}>
-  <label htmlFor="DonorName" className={styles.formLabel}>
-    {t('personalDiploma.nameLabel')}
-  </label>
-  <input
-    id="DonorName"
-    type="text"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    className={styles.input}
-  />
-</div>
-  <div className={styles.language}>
-    <label className={styles.formLabel}>
-      {t('personalDiploma.chooseLanguage')}
-    </label>
-    <div className={styles.radioGroup}>
-      <label>
+        <label htmlFor="DonorName" className={styles.formLabel}>
+          {t('personalDiploma.nameLabel')}
+        </label>
         <input
-          type="radio"
-          value="Svenska"
-          checked={language === 'Svenska'}
-          onChange={() => setLanguage('Svenska')}
+          id="DonorName"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={styles.input}
         />
-        Svenska
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="English"
-          checked={language === 'English'}
-          onChange={() => setLanguage('English')}
-        />
+      </div>
+
+      <div className={styles.language}>
+        <label className={styles.formLabel}>
+          {t('personalDiploma.chooseLanguage')}
+        </label>
+        <div className={styles.radioGroup}>
+          <label>
+            <input
+              type="radio"
+              value="Svenska"
+              checked={language === 'Svenska'}
+              onChange={() => setLanguage('Svenska')}
+            />
+            Svenska
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="English"
+              checked={language === 'English'}
+              onChange={() => setLanguage('English')}
+            />
             English
           </label>
         </div>
       </div>
+
       <label className={styles.checkbox}>
         <input type="checkbox" />
         {t('personalDiploma.updatesConsent')}
@@ -92,11 +95,14 @@ import { Link } from "react-router-dom";
         {t('personalDiploma.donorWallConsent')}
       </label>
 
-      <Button className={styles.button} onClick={handleDownload}>{t('personalDiploma.downloadButton')}</Button>
-       <div style={{ display: 'inline-block', width: '100%' }} ref={certificateRef}>
+      <Button className={styles.button} onClick={handleDownload}>
+        {t('personalDiploma.downloadButton')}
+      </Button>
+
+      <div style={{ display: 'inline-block', width: '100%' }} ref={certificateRef}>
         <Certificate donorName={name.trim() !== "" ? name : t('certificate.anonymous')} />
       </div>
-      </div>
+    </div>
   );
 };
 

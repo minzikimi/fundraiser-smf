@@ -7,30 +7,24 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-
 const GOAL_AMOUNT = 100000;
 
 const ThankYou = () => {
   const navigate = useNavigate();
-  const [totalRaised, setTotalRaised] = useState(40000); // sample raised
+  const [totalRaised, setTotalRaised] = useState(40000);
   const { t } = useTranslation();
-
-  const handleDonation = (amount) => {
-    setTotalRaised((prev) => prev + amount);
-  };
 
   return (
     <main className={styles.thankYouContainer}>
-      <nav className={styles.btnSection}>
-        <Button className={styles.goBackBtn} onClick={() => navigate("/")}>
-          <img
-            src={GoBackArrow}
-             alt={t("thank-you.goBackAlt")}
-            className={styles.goBackArrow}
-          ></img>
-          {t("thank-you.goBack")}
-        </Button>
-      </nav>
+      <Button className={styles.goBackBtn} onClick={() => navigate("/")}>
+        <img
+          src={GoBackArrow}
+          alt={t("thank-you.goBackAlt")}
+          className={styles.goBackArrow}
+        />
+        {t("thank-you.goBack")}
+      </Button>
+
       <div className={styles.thankYouWrapper}>
         <header className={styles.headerThankYou}>
           <img
@@ -51,9 +45,7 @@ const ThankYou = () => {
         </div>
 
         <div className={styles.getDiploma}>
-          <h3>
-            {t("thank-you.message")}
-          </h3>
+          <h3>{t("thank-you.message")}</h3>
           <Button
             className={styles.button}
             onClick={() => navigate("/personal-diploma")}
