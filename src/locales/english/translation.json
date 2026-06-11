@@ -118,5 +118,7 @@
     "donatedButton":{
     "text":"I HAVE DONATED"
   },
-   "pageTitle": "From Memory to Meaning: Swedish Holocaust Museum"
+   "pageTitle": "From Memory to Meaning: Swedish Holocaust Museum","home": {
+    "donateCallout": "Support Our Mission"
+  }
 }
